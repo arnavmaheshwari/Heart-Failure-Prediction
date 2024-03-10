@@ -1,0 +1,96 @@
+<div class="form">
+  <form #predictionForm="ngForm">
+    <div class="HeartFailurePrediction">
+      <span class="Heading">Heart Failure Prediction</span>
+      <div class="inputFields">
+        <div class="input">
+          <br />
+          <input type="tel" placeholder="Age" name="Age" #Age="ngModel" [(ngModel)]="HeartFailurePred.Age" required min=28 max=77>
+          <small class="error" *ngIf="Age.touched && Age.invalid">Invalid Age</small>
+          <br />
+        </div>
+        <div class="input">
+          <br />
+          <select name="Sex" #Sex="ngModel" [(ngModel)]="HeartFailurePred.Sex" required>
+            <option value="" disabled selected hidden>---Sex---</option>
+            <option value=0>Female</option>
+            <option value=1>Male</option>
+          </select>
+          <small class="error" *ngIf="Sex.touched && Sex.invalid">Select Sex</small>
+          <br />
+        </div>
+        <div class="input">
+          <br />
+          <select name="ChestPainType" #ChestPainType="ngModel" [(ngModel)]="HeartFailurePred.ChestPainType" required="">
+            <option value="" disabled selected hidden>---Chest Pain Type---</option>
+            <option value=1>Atypical Angina</option>
+            <option value=2>Non-Anginal Pain</option>
+            <option value=0>Asymptomatic</option>
+            <option value=3>Typical Angina</option>
+          </select>
+          <small class="error" *ngIf="ChestPainType.touched && ChestPainType.invalid">Select Chest Pain Type</small>
+          <br />
+        </div>
+        <div class="input">
+          <br />
+          <input type="tel" placeholder="Resting Bloop Pressure" name="RestingBP" #RestingBP="ngModel" [(ngModel)]="HeartFailurePred.RestingBP" required min=0 max=200>
+          <small class="error" *ngIf="RestingBP.touched && RestingBP.invalid">Invalid Resting Blood Pressure</small>
+          <br />
+        </div>
+        <div class="input">
+          <br />
+          <input type="tel" placeholder="Cholestrol" name="Cholestrol" #Cholestrol="ngModel" [(ngModel)]="HeartFailurePred.Cholestrol" required min=0 max=603>
+          <small class="error" *ngIf="Cholestrol.touched && Cholestrol.invalid">Invalid Cholestrol Value</small>
+          <br />
+        </div>
+        <div class="input">
+          <br />
+          <select name="RestingECG" #RestingECG="ngModel" [(ngModel)]="HeartFailurePred.RestingECG" required>
+            <option value="" disabled selected hidden>---Resting Electrocardiogram Results---</option>
+            <option value=1>Normal</option>
+            <option value=2>ST</option>
+            <option value=0>LVH</option>
+          </select>
+          <small class="error" *ngIf="RestingECG.touched && RestingECG.invalid">Select Resting Electrocardiogram Results</small>
+          <br />
+        </div>
+        <div class="input">
+          <br />
+          <input type="tel" placeholder="Maximum Heart Rate Achieved" name="MaxHR" #MaxHR="ngModel" [(ngModel)]="HeartFailurePred.MaxHR" required min=60 max=202>
+          <small class="error" *ngIf="MaxHR.touched && MaxHR.invalid">Invalid Maximum Heart Rate Achieved</small>
+          <br />
+        </div>
+        <div class="input">
+          <br />
+          <select name="ExerciseAngina" #ExerciseAngina="ngModel" [(ngModel)]="HeartFailurePred.ExerciseAngina" required>
+            <option value="" disabled selected hidden>---Exercise-Induced Angina---</option>
+            <option value=1>Yes</option>
+            <option value=0>No</option>
+          </select>
+          <small class="error" *ngIf="ExerciseAngina.touched && ExerciseAngina.invalid">Select Exercise Induced Angina</small>
+          <br />
+        </div>
+        <div class="input">
+          <br />
+          <input type="tel" placeholder="Old Peak" name="Oldpeak" #Oldpeak="ngModel" [(ngModel)]="HeartFailurePred.Oldpeak" required min=-2.6 max=6.2>
+          <small class="error" *ngIf="Oldpeak.touched && Oldpeak.invalid">Invalid Old Peak</small>
+          <br />
+        </div>
+        <div class="input">
+          <br />
+          <select name="ST_Slope" #ST_Slope="ngModel" [(ngModel)]="HeartFailurePred.ST_Slope" required>
+            <option value="" disabled selected hidden>---ST Slope---</option>
+            <option value=2>Up</option>
+            <option value=1>Flat</option>
+            <option value=0>Down</option>
+          </select>
+          <small class="error" *ngIf="ST_Slope.touched && ST_Slope.invalid">Select Valid ST Slope</small>
+          <br />
+        </div>
+        <div class="input final">
+          <button type="submit" class="btn btn-success" (click)="predict()" [disabled]=predictionForm.invalid>Submit</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
